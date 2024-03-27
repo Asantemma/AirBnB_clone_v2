@@ -12,11 +12,14 @@ app = Flask(__name__)
 @app.route('/hbnb_filters', strict_slashes=False)
 def hbnb_filters():
     """Display a HTML page similar to 6-index.html"""
-    states = sorted(storage.all("State").values(), key=lambda state: state.name)
+    states = sorted(storage.all("State").values(),
+                    key=lambda state: state.name)
     cities = sorted(storage.all("City").values(), key=lambda city: city.name)
-    amenities = sorted(storage.all("Amenity").values(), key=lambda amenity: amenity.name)
+    amenities = sorted(storage.all("Amenity").values(),
+                       key=lambda amenity: amenity.name)
 
-    return render_template('10-hbnb_filters.html', states=states, cities=cities, amenities=amenities)
+    return render_template('10-hbnb_filters.html', states=states,
+                           cities=cities, amenities=amenities)
 
 
 @app.teardown_appcontext
